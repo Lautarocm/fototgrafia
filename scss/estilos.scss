@@ -50,7 +50,9 @@ ul{
 }
 
 .encabezado{
+    position: relative;
     .encabezado__frase{
+        width: 100%;
         font-size: 5vw;
         color: $blanco;
         top: 50%;
@@ -62,6 +64,9 @@ ul{
         animation-timing-function: ease-out;
         animation-duration: 1s;
         animation-delay: 0s;
+    }
+    .encabezado__imagen{
+        width: 100%;
     }
 }
 
@@ -76,6 +81,7 @@ ul{
     "eventos"
     "moda"
     "fotoproducto";
+    grid-row-gap: 50px;
     .grilla__seccion{
         box-shadow: $offsetShadow;
         width: 80vw;
@@ -105,24 +111,28 @@ ul{
 
             /*INICIO PAGES MAIN*/
 
-.clientes{
-    width: 90%;
-    .carrouselClientes{
-        background-color: $gris;
-        height: 625px;
-        overflow: hidden;
-        .carrouselClientes__logo{
-            height: 125px;
-            animation-name: clientes;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-            animation-duration: 15s;
-            animation-delay: 0s;
+.pagesMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .clientes{
+        width: 90%;
+        .carrouselClientes{
+            background-color: $gris;
+            height: 625px;
+            overflow: hidden;
+            .carrouselClientes__logo{
+                height: 125px;
+                animation-name: carrouselVertical;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 15s;
+                animation-delay: 0s;
+
+            }
         }
     }
-}
-
-.pagesMain{
     h3{
         font-size: 10vw;
         color: $azul;
@@ -169,11 +179,17 @@ ul{
             /*INICIO FOOTER*/
 
 .pieDePagina{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: $azul;
     color: $blanco;
     font-size: 4.5vw;
     i{
         color: $oscuro;
+    }
+    iframe{
+        width: 75%;
     }
 }
 
@@ -192,10 +208,221 @@ ul{
     }
 }
 
-@keyframes clientes{
+@keyframes carrouselVertical{
     0%{
     }
     100%{
         transform: translateY(-627%);
     }
+}
+
+@keyframes carrouselHorizontal{
+    0%{
+    }
+    100%{
+        transform: translateX(-920px);
+    }
+}
+
+            /*MEDIA QUERIES*/
+
+@media (min-width: 576px){
+    .encabezado{
+        .encabezado__frase{
+            font-size: 3.5vw;
+        }
+    }
+    .pagesMain{
+        .clientes{
+            width: 90%;
+            .carrouselClientes{
+                display: flex;
+                align-items: center;
+                height: 200px;
+                .carrouselClientes__logo{
+                    margin: 0 25px;
+                    animation-name: carrouselHorizontal;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: linear;
+                    animation-duration: 15s;
+                    animation-delay: 0s;
+                }
+            }
+        }
+        h3{
+            font-size: 6vw;
+        }
+        p{
+            font-size: 3vw;
+        }
+    }
+    .pieDePagina{
+        font-size: 3vw;
+    }
+}
+
+
+@media (min-width: 576px) and (orientation: landscape){
+    
+            /*INICIO HEADER*/
+
+    header{
+        height: 100vh;
+        .encabezado{
+            height: 85%;
+            .encabezado__imagen{
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+    }
+
+            /*FINAL HEADER*/
+
+            /*INICIO HEADER GALERIA*/
+
+    .headerGaleria{
+        height: initial;
+    }
+
+            /*FINAL HEADER GALERIA*/
+
+            /*INICIO INDEX MAIN*/
+    .grilla{
+        grid-template-areas: 
+        "eventos moda fotoproducto";
+        grid-template-columns: 1fr 1fr 1fr;
+        .grilla__seccion{
+            width: 80%;
+            justify-self: center;
+            .grilla__seccionTexto{
+                h2{
+                    font-size: 3vw;
+                }
+                p{
+                    font-size: 2vw;
+                }
+            }
+        }
+    }
+
+            /*FINAL INDEX MAIN*/
+
+            /*INICIO PAGES MAIN*/
+
+
+    .pagesMain{
+        h3{
+            font-size: 5vw;
+            color: $azul;
+        }
+        p{
+            font-size: 2vw;
+            color: $celeste;
+        }
+    }
+
+            /*FINAL PAGES MAIN*/
+
+            /*INICIO FOOTER*/
+
+    .pieDePagina{
+        font-size: 2.5vw;
+    }
+
+            /*FINAL FOOTER*/
+
+}
+            
+@media (min-width: 992px) and (orientation: landscape){
+    
+            /*INICIO PAGES MAIN*/
+
+.pagesMain{
+    flex-direction: row;
+    .clientes{
+        width: 50%;
+        .carrouselClientes{
+            flex-direction: column;
+            height: 625px;
+            overflow: hidden;
+            .carrouselClientes__logo{
+                height: 125px;
+                animation-name: carrouselVertical;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 15s;
+                animation-delay: 0s;
+
+            }
+        }
+    }
+    h3{
+        font-size: 4vw;
+        color: $azul;
+    }
+    p{
+        font-size: 2vw;
+        color: $celeste;
+    }
+}
+
+            /*FINAL PAGES MAIN*/
+
+            /*INICIO GALERIA*/
+
+    .grillaGaleria{
+        align-items: initial;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-areas:
+        "foto1 foto1 foto1 foto1 foto4 foto4 foto4 foto4 foto4 foto4 foto4 foto4"
+        "foto1 foto1 foto1 foto1 foto4 foto4 foto4 foto4 foto4 foto4 foto4 foto4"
+        "foto1 foto1 foto1 foto1 foto4 foto4 foto4 foto4 foto4 foto4 foto4 foto4"
+        "foto1 foto1 foto1 foto1 foto6 foto6 foto6 foto7 foto7 foto9 foto9 foto9"
+        "foto1 foto1 foto1 foto1 foto6 foto6 foto6 foto7 foto7 foto9 foto9 foto9"
+        "foto1 foto1 foto1 foto1 foto6 foto6 foto6 foto7 foto7 foto2 foto2 foto2"
+        "foto1 foto1 foto1 foto1 foto11 foto11 foto8 foto8 foto8 foto2 foto2 foto2"
+        "foto1 foto1 foto1 foto1 foto11 foto11 foto8 foto8 foto8 foto2 foto2 foto2"
+        "foto3 foto3 foto5 foto5 foto5 foto5 foto8 foto8 foto8 foto2 foto2 foto2"
+        "foto3 foto3 foto5 foto5 foto5 foto5 foto10 foto10 foto10 foto2 foto2 foto2"
+        "foto3 foto3 foto5 foto5 foto5 foto5 foto10 foto10 foto10 foto2 foto2 foto2"
+        "foto3 foto3 foto5 foto5 foto5 foto5 foto10 foto10 foto10 foto2 foto2 foto2";
+        justify-self: center;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        height: 100vh;
+        padding: 75px;
+        .grillaGaleria__foto{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 200ms;
+            border-radius: 15px;
+            &:hover{
+                transform: scale(1.05);
+                box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.301);
+            }
+        }
+    }
+
+            /*FINAL GALERIA*/
+
+            /*INICIO FOOTER*/
+
+.pieDePagina{
+    flex-direction: row;
+    justify-content: space-around;
+    ul{
+        flex-direction: column;
+        font-size: 1.5vw;
+        margin: 0;
+    }
+    iframe{
+        width: 30%;
+    }
+}
+
+            /*FINAL FOOTER*/
 }

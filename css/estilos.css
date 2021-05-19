@@ -7208,25 +7208,31 @@ ul {
     background-repeat: no-repeat;
     text-indent: -9999px; }
 
-.encabezado .encabezado__frase {
-  font-size: 5vw;
-  color: #FCFFF5;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-shadow: 3px 3px 3px #000000d3;
-  animation-name: fade-in;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  animation-duration: 1s;
-  animation-delay: 0s; }
+.encabezado {
+  position: relative; }
+  .encabezado .encabezado__frase {
+    width: 100%;
+    font-size: 5vw;
+    color: #FCFFF5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 3px 3px 3px #000000d3;
+    animation-name: fade-in;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 1s;
+    animation-delay: 0s; }
+  .encabezado .encabezado__imagen {
+    width: 100%; }
 
 /*FINAL HEADER*/
 /*INICIO INDEX MAIN*/
 .grilla {
   justify-content: center;
   display: grid;
-  grid-template-areas: "eventos" "moda" "fotoproducto"; }
+  grid-template-areas: "eventos" "moda" "fotoproducto";
+  grid-row-gap: 50px; }
   .grilla .grilla__seccion {
     box-shadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
     width: 80vw; }
@@ -7245,27 +7251,30 @@ ul {
 
 /*FINAL INDEX MAIN*/
 /*INICIO PAGES MAIN*/
-.clientes {
-  width: 90%; }
-  .clientes .carrouselClientes {
-    background-color: #D1DBBD;
-    height: 625px;
-    overflow: hidden; }
-    .clientes .carrouselClientes .carrouselClientes__logo {
-      height: 125px;
-      animation-name: clientes;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-duration: 15s;
-      animation-delay: 0s; }
-
-.pagesMain h3 {
-  font-size: 10vw;
-  color: #3E606F; }
-
-.pagesMain p {
-  font-size: 5vw;
-  color: #91AA9D; }
+.pagesMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
+  .pagesMain .clientes {
+    width: 90%; }
+    .pagesMain .clientes .carrouselClientes {
+      background-color: #D1DBBD;
+      height: 625px;
+      overflow: hidden; }
+      .pagesMain .clientes .carrouselClientes .carrouselClientes__logo {
+        height: 125px;
+        animation-name: carrouselVertical;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 15s;
+        animation-delay: 0s; }
+  .pagesMain h3 {
+    font-size: 10vw;
+    color: #3E606F; }
+  .pagesMain p {
+    font-size: 5vw;
+    color: #91AA9D; }
 
 /*FINAL PAGES MAIN*/
 /*INICIO GALERIA*/
@@ -7316,11 +7325,16 @@ ul {
 /*FINAL GALERIA*/
 /*INICIO FOOTER*/
 .pieDePagina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #3E606F;
   color: #FCFFF5;
   font-size: 4.5vw; }
   .pieDePagina i {
     color: #193441; }
+  .pieDePagina iframe {
+    width: 75%; }
 
 /*FINAL FOOTER*/
 /*ANIMACIONES*/
@@ -7332,7 +7346,133 @@ ul {
     opacity: 1;
     transform: translate(-50%, -50%); } }
 
-@keyframes clientes {
+@keyframes carrouselVertical {
   0% { }
   100% {
     transform: translateY(-627%); } }
+
+@keyframes carrouselHorizontal {
+  0% { }
+  100% {
+    transform: translateX(-920px); } }
+
+/*MEDIA QUERIES*/
+@media (min-width: 576px) {
+  .encabezado .encabezado__frase {
+    font-size: 3.5vw; }
+  .pagesMain .clientes {
+    width: 90%; }
+    .pagesMain .clientes .carrouselClientes {
+      display: flex;
+      align-items: center;
+      height: 200px; }
+      .pagesMain .clientes .carrouselClientes .carrouselClientes__logo {
+        margin: 0 25px;
+        animation-name: carrouselHorizontal;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 15s;
+        animation-delay: 0s; }
+  .pagesMain h3 {
+    font-size: 6vw; }
+  .pagesMain p {
+    font-size: 3vw; }
+  .pieDePagina {
+    font-size: 3vw; } }
+
+@media (min-width: 576px) and (orientation: landscape) {
+  /*INICIO HEADER*/
+  header {
+    height: 100vh; }
+    header .encabezado {
+      height: 85%; }
+      header .encabezado .encabezado__imagen {
+        object-fit: cover;
+        height: 100%; }
+  /*FINAL HEADER*/
+  /*INICIO HEADER GALERIA*/
+  .headerGaleria {
+    height: initial; }
+  /*FINAL HEADER GALERIA*/
+  /*INICIO INDEX MAIN*/
+  .grilla {
+    grid-template-areas: "eventos moda fotoproducto";
+    grid-template-columns: 1fr 1fr 1fr; }
+    .grilla .grilla__seccion {
+      width: 80%;
+      justify-self: center; }
+      .grilla .grilla__seccion .grilla__seccionTexto h2 {
+        font-size: 3vw; }
+      .grilla .grilla__seccion .grilla__seccionTexto p {
+        font-size: 2vw; }
+  /*FINAL INDEX MAIN*/
+  /*INICIO PAGES MAIN*/
+  .pagesMain h3 {
+    font-size: 5vw;
+    color: #3E606F; }
+  .pagesMain p {
+    font-size: 2vw;
+    color: #91AA9D; }
+  /*FINAL PAGES MAIN*/
+  /*INICIO FOOTER*/
+  .pieDePagina {
+    font-size: 2.5vw; }
+  /*FINAL FOOTER*/ }
+
+@media (min-width: 992px) and (orientation: landscape) {
+  /*INICIO PAGES MAIN*/
+  .pagesMain {
+    flex-direction: row; }
+    .pagesMain .clientes {
+      width: 50%; }
+      .pagesMain .clientes .carrouselClientes {
+        flex-direction: column;
+        height: 625px;
+        overflow: hidden; }
+        .pagesMain .clientes .carrouselClientes .carrouselClientes__logo {
+          height: 125px;
+          animation-name: carrouselVertical;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          animation-duration: 15s;
+          animation-delay: 0s; }
+    .pagesMain h3 {
+      font-size: 4vw;
+      color: #3E606F; }
+    .pagesMain p {
+      font-size: 2vw;
+      color: #91AA9D; }
+  /*FINAL PAGES MAIN*/
+  /*INICIO GALERIA*/
+  .grillaGaleria {
+    align-items: initial;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas: "foto1 foto1 foto1 foto1 foto4 foto4 foto4 foto4 foto4 foto4 foto4 foto4" "foto1 foto1 foto1 foto1 foto4 foto4 foto4 foto4 foto4 foto4 foto4 foto4" "foto1 foto1 foto1 foto1 foto4 foto4 foto4 foto4 foto4 foto4 foto4 foto4" "foto1 foto1 foto1 foto1 foto6 foto6 foto6 foto7 foto7 foto9 foto9 foto9" "foto1 foto1 foto1 foto1 foto6 foto6 foto6 foto7 foto7 foto9 foto9 foto9" "foto1 foto1 foto1 foto1 foto6 foto6 foto6 foto7 foto7 foto2 foto2 foto2" "foto1 foto1 foto1 foto1 foto11 foto11 foto8 foto8 foto8 foto2 foto2 foto2" "foto1 foto1 foto1 foto1 foto11 foto11 foto8 foto8 foto8 foto2 foto2 foto2" "foto3 foto3 foto5 foto5 foto5 foto5 foto8 foto8 foto8 foto2 foto2 foto2" "foto3 foto3 foto5 foto5 foto5 foto5 foto10 foto10 foto10 foto2 foto2 foto2" "foto3 foto3 foto5 foto5 foto5 foto5 foto10 foto10 foto10 foto2 foto2 foto2" "foto3 foto3 foto5 foto5 foto5 foto5 foto10 foto10 foto10 foto2 foto2 foto2";
+    justify-self: center;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    height: 100vh;
+    padding: 75px; }
+    .grillaGaleria .grillaGaleria__foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 200ms;
+      border-radius: 15px; }
+      .grillaGaleria .grillaGaleria__foto:hover {
+        transform: scale(1.05);
+        box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.301); }
+  /*FINAL GALERIA*/
+  /*INICIO FOOTER*/
+  .pieDePagina {
+    flex-direction: row;
+    justify-content: space-around; }
+    .pieDePagina ul {
+      flex-direction: column;
+      font-size: 1.5vw;
+      margin: 0; }
+    .pieDePagina iframe {
+      width: 30%; }
+  /*FINAL FOOTER*/ }
