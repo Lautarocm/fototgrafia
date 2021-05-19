@@ -7476,3 +7476,6 @@ ul {
     .pieDePagina iframe {
       width: 30%; }
   /*FINAL FOOTER*/ }
+
+.modal-dialog {
+  max-width: 80vw; }
