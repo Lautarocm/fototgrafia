@@ -1,0 +1,201 @@
+//VARS
+
+$oscuro:  #193441 !default;
+$azul:    #3E606F !default;
+$celeste: #91AA9D !default;
+$gris:    #D1DBBD !default;
+$blanco:  #FCFFF5 !default;
+$offsetShadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.300);
+$centerShadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.300);
+$textShadow: 3px 3px 3px #000000d3;
+$border-radius: .75rem;
+
+$theme-colors: (
+    "dark":         $oscuro,
+    "primary":      $azul,
+    "info":         $celeste,
+    "secondary":    $gris,
+    "light":        $blanco
+);
+
+@import "bootstrap/bootstrap.scss";
+
+/*RESET*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+            /* INICIO HEADER*/
+
+.navbar-brand{
+    width: 200px;
+    height: auto;
+    background-position: center;
+    .navbar__logo{
+        background-image: url(../img/logoFotografia.svg);
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+    }
+}
+
+.encabezado{
+    .encabezado__frase{
+        font-size: 5vw;
+        color: $blanco;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: $textShadow;
+        animation-name: fade-in;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        animation-duration: 1s;
+        animation-delay: 0s;
+    }
+}
+
+            /*FINAL HEADER*/
+
+            /*INICIO INDEX MAIN*/
+
+.grilla{
+    justify-content: center;
+    display: grid;
+    grid-template-areas:
+    "eventos"
+    "moda"
+    "fotoproducto";
+    .grilla__seccion{
+        box-shadow: $offsetShadow;
+        width: 80vw;
+        .grilla__seccionTexto{
+            h2{
+                font-size: 10vw;
+                color: $gris;
+            }
+            p{
+                font-size: 5vw;
+                color: $celeste;
+            }
+        }
+    }
+    .grilla__eventos{
+        grid-area: eventos;
+    }
+    .grilla__moda{
+        grid-area: moda;
+    }
+    .grilla__fotoproducto{
+        grid-area: fotoproducto;
+    }
+}
+
+            /*FINAL INDEX MAIN*/
+
+            /*INICIO PAGES MAIN*/
+
+.clientes{
+    width: 90%;
+    .carrouselClientes{
+        background-color: $gris;
+        height: 625px;
+        overflow: hidden;
+        .carrouselClientes__logo{
+            height: 125px;
+            animation-name: clientes;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 15s;
+            animation-delay: 0s;
+        }
+    }
+}
+
+.pagesMain{
+    h3{
+        font-size: 10vw;
+        color: $azul;
+    }
+    p{
+        font-size: 5vw;
+        color: $celeste;
+    }
+}
+
+            /*FINAL PAGES MAIN*/
+
+            /*INICIO GALERIA*/
+
+.grillaGaleria{
+    padding: 20px 40px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "foto1"
+    "foto2"
+    "foto3"
+    "foto4"
+    "foto5"
+    "foto6"
+    "foto7"
+    "foto8"
+    "foto9"
+    "foto10"
+    "foto11";
+    .grillaGaleria__foto{
+        width: 100%;
+        margin: 20px 0;
+        object-fit: cover;
+    }
+}
+
+@for $i from 1 through 11 {
+    .foto#{$i} {grid-area: foto#{$i};}
+}
+            /*FINAL GALERIA*/
+
+            /*INICIO FOOTER*/
+
+.pieDePagina{
+    background-color: $azul;
+    color: $blanco;
+    font-size: 4.5vw;
+    i{
+        color: $oscuro;
+    }
+}
+
+            /*FINAL FOOTER*/
+
+            /*ANIMACIONES*/
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+        transform: translate(-50%, -70%);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes clientes{
+    0%{
+    }
+    100%{
+        transform: translateY(-627%);
+    }
+}
