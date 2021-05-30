@@ -85,6 +85,11 @@ ul{
     .grilla__seccion{
         box-shadow: $offsetShadow;
         width: 80vw;
+        border: 2px solid $gris;
+        &:hover{
+            transform: scale(1.05);
+            transition: all 200ms;
+        }
         .grilla__seccionTexto{
             h2{
                 font-size: 10vw;
@@ -122,6 +127,7 @@ ul{
             background-color: $gris;
             height: 625px;
             overflow: hidden;
+            box-shadow: $offsetShadow;
             .carrouselClientes__logo{
                 height: 125px;
                 animation-name: carrouselVertical;
@@ -190,6 +196,12 @@ ul{
     }
     iframe{
         width: 75%;
+    }
+    a{
+        color: $blanco;
+        &:hover{
+            color: $gris;
+        }
     }
 }
 
