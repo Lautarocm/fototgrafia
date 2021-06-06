@@ -7268,24 +7268,23 @@ ul {
       border-radius: 100%;
       box-shadow: 0rem 0rem 0.75rem rgba(0, 0, 0, 0.3); }
   .pagesMain .staff .staff__grupo .staff__integranteNombre {
-    color: #193441;
+    color: #3E606F;
     font-weight: bold;
     font-size: 4vw;
     margin-top: 5px; }
-  .pagesMain .clientes {
-    width: 90%; }
-    .pagesMain .clientes .carrouselClientes {
-      background-color: #D1DBBD;
-      height: 625px;
-      overflow: hidden;
-      box-shadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.3); }
-      .pagesMain .clientes .carrouselClientes .carrouselClientes__logo {
-        height: 125px;
-        animation-name: carrouselVertical;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        animation-duration: 15s;
-        animation-delay: 0s; }
+  .pagesMain .clientes .carrouselClientes {
+    background-color: #D1DBBD;
+    height: 625px;
+    overflow: hidden;
+    box-shadow: 0.25rem 0.25rem 0.75rem rgba(0, 0, 0, 0.3); }
+    .pagesMain .clientes .carrouselClientes .carrouselClientes__logo {
+      padding-inline: 25px;
+      height: 125px;
+      animation-name: carrouselVertical;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-duration: 15s;
+      animation-delay: 0s; }
   .pagesMain h3 {
     font-size: 10vw;
     color: #193441; }
@@ -7388,6 +7387,7 @@ ul {
       align-items: center;
       height: 200px; }
       .pagesMain .clientes .carrouselClientes .carrouselClientes__logo {
+        padding-inline: 0;
         margin: 0 25px;
         animation-name: carrouselHorizontal;
         animation-iteration-count: infinite;
@@ -7429,23 +7429,44 @@ ul {
   /*FINAL INDEX MAIN*/
   /*INICIO PAGES MAIN*/
   .pagesMain h3 {
-    font-size: 5vw;
-    color: #3E606F; }
+    font-size: 5vw; }
   .pagesMain p {
-    font-size: 2vw;
-    color: #91AA9D; }
+    font-size: 2vw; }
   /*FINAL PAGES MAIN*/
   /*INICIO FOOTER*/
   .pieDePagina {
     font-size: 2.5vw; }
   /*FINAL FOOTER*/ }
 
-@media (min-width: 992px) and (orientation: landscape) {
+@media (min-width: 768px) {
+  .contenedorStaff {
+    display: flex;
+    flex-direction: column; }
+    .contenedorStaff .staff__grupo {
+      display: flex;
+      justify-content: space-around; }
+      .contenedorStaff .staff__grupo .staff__integrante .staff__integranteNombre {
+        font-size: 2vw; }
+  .clientes .carrouselClientes .carrouselClientes__logo {
+    padding-inline: 0; } }
+
+@media (min-width: 1200px) and (orientation: landscape) {
   /*INICIO PAGES MAIN*/
   .pagesMain {
-    flex-direction: row; }
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-evenly; }
+    .pagesMain .contenedorStaff {
+      width: 780px;
+      height: 100%;
+      justify-content: space-evenly; }
+      .pagesMain .contenedorStaff .staff .staff__grupo {
+        justify-content: center; }
     .pagesMain .clientes {
-      width: 50%; }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: initial; }
       .pagesMain .clientes .carrouselClientes {
         flex-direction: column;
         height: 625px;
@@ -7458,11 +7479,10 @@ ul {
           animation-duration: 15s;
           animation-delay: 0s; }
     .pagesMain h3 {
-      font-size: 4vw;
-      color: #3E606F; }
+      font-size: 3vw; }
     .pagesMain p {
-      font-size: 2vw;
-      color: #91AA9D; }
+      padding-inline: 10%;
+      font-size: 1vw; }
   /*FINAL PAGES MAIN*/
   /*INICIO GALERIA*/
   .grillaGaleria {
