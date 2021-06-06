@@ -122,6 +122,25 @@ ul{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    .staff{
+        .staff__grupo{
+            .staff__integrante{
+                display: flex;
+                flex-direction: column;
+                margin: 30px;
+                img{
+                    border-radius: 100%;
+                    box-shadow: $centerShadow;
+                }
+            }
+            .staff__integranteNombre{
+                color: $oscuro;
+                font-weight: bold;
+                font-size: 4vw;
+                margin-top: 5px;
+            }
+        }            
+    }
     .clientes{
         width: 90%;
         .carrouselClientes{
