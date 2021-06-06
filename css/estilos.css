@@ -7242,10 +7242,10 @@ ul {
       transition: all 200ms; }
     .grilla .grilla__seccion .grilla__seccionTexto h2 {
       font-size: 10vw;
-      color: #D1DBBD; }
+      color: #193441; }
     .grilla .grilla__seccion .grilla__seccionTexto p {
       font-size: 5vw;
-      color: #91AA9D; }
+      color: #3E606F; }
   .grilla .grilla__eventos {
     grid-area: eventos; }
   .grilla .grilla__moda {
@@ -7276,10 +7276,10 @@ ul {
         animation-delay: 0s; }
   .pagesMain h3 {
     font-size: 10vw;
-    color: #3E606F; }
+    color: #193441; }
   .pagesMain p {
     font-size: 5vw;
-    color: #91AA9D; }
+    color: #3E606F; }
 
 /*FINAL PAGES MAIN*/
 /*INICIO GALERIA*/
